@@ -83,3 +83,8 @@ body {
 .card {
   margin: 20px;
 }
+
+.spinner {
+  height: 100vh;
+  line-height: 100vh;
+}
