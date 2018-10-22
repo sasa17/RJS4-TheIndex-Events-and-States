@@ -8,6 +8,8 @@ import AuthorList from "./AuthorList";
 import SearchBar from "./SearchBar";
 import AuthorDetail from "./AuthorDetail";
 
+import author from "./data";
+
 class App extends Component {
   constructor(props) {
     super(props);
