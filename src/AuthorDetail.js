@@ -19,7 +19,7 @@ class AuthorDetail extends Component {
           <img
             src={author.imageUrl}
             className="img-thumbnail"
-            alt="Author Image"
+            alt={`${author.first_name} ${author.last_name}`}
           />
         </div>
         <table className="mt-3 table">

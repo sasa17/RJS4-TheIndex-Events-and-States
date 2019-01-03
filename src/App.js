@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import authors from "./data";
 
 // Components
 import Sidebar from "./Sidebar";
@@ -8,14 +7,14 @@ import AuthorList from "./AuthorList";
 import SearchBar from "./SearchBar";
 import AuthorDetail from "./AuthorDetail";
 
-import author from "./data";
+import authors from "./data";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentAuthor: {},
-      filteredAuthors: []
+      filteredAuthors: authors
     };
     this.selectAuthor = this.selectAuthor.bind(this);
     this.unselectAuthor = this.unselectAuthor.bind(this);
@@ -33,7 +32,9 @@ class App extends Component {
   filterAuthors(query) {
     query = query.toLowerCase();
     let filteredAuthors = authors.filter(author => {
-      return `${author.first_name} ${author.last_name}`.includes(query);
+      return `${author.first_name} ${author.last_name}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
     });
     this.setState({ filteredAuthors: filteredAuthors });
   }
@@ -41,15 +42,14 @@ class App extends Component {
   getContentView() {
     if (this.state.currentAuthor.first_name) {
       return <AuthorDetail author={this.state.currentAuthor} />;
-    } else if (this.state.filteredAuthors[0]) {
+    } else {
       return (
         <AuthorsList
           authors={this.state.filteredAuthors}
           selectAuthor={this.selectAuthor}
+          filterAuthors={this.filterAuthors}
         />
       );
-    } else {
-      return <AuthorList authors={authors} selectAuthor={this.selectAuthor} />;
     }
   }
 
@@ -60,10 +60,7 @@ class App extends Component {
           <div className="col-2">
             <Sidebar unselectAuthor={this.unselectAuthor} />
           </div>
-          <div className="content col-10">
-            <SearchBar filterAuthors={this.filterAuthors} />
-            {this.getContentView()}
-          </div>
+          <div className="content col-10">{this.getContentView()}</div>
         </div>
       </div>
     );
