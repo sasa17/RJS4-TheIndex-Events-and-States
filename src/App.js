@@ -10,26 +10,14 @@ import AuthorDetail from "./AuthorDetail";
 import authors from "./data";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentAuthor: {},
-      filteredAuthors: authors
-    };
-    this.selectAuthor = this.selectAuthor.bind(this);
-    this.unselectAuthor = this.unselectAuthor.bind(this);
-    this.filterAuthors = this.filterAuthors.bind(this);
-  }
+  state = {
+    currentAuthor: null,
+    filteredAuthors: authors
+  };
 
-  selectAuthor(author) {
-    this.setState({ currentAuthor: author });
-  }
+  selectAuthor = author => this.setState({ currentAuthor: author });
 
-  unselectAuthor() {
-    this.setState({ currentAuthor: {} });
-  }
-
-  filterAuthors(query) {
+  filterAuthors = query => {
     query = query.toLowerCase();
     let filteredAuthors = authors.filter(author => {
       return `${author.first_name} ${author.last_name}`
@@ -37,10 +25,10 @@ class App extends Component {
         .includes(query.toLowerCase());
     });
     this.setState({ filteredAuthors: filteredAuthors });
-  }
+  };
 
   getContentView() {
-    if (this.state.currentAuthor.first_name) {
+    if (this.state.currentAuthor) {
       return <AuthorDetail author={this.state.currentAuthor} />;
     } else {
       return (
@@ -58,7 +46,7 @@ class App extends Component {
       <div id="app" className="container-fluid">
         <div className="row">
           <div className="col-2">
-            <Sidebar unselectAuthor={this.unselectAuthor} />
+            <Sidebar selectAuthor={this.selectAuthor} />
           </div>
           <div className="content col-10">{this.getContentView()}</div>
         </div>

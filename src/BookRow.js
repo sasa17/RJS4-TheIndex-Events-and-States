@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class BookRow extends Component {
   render() {
-    let book = this.props.book;
-    let author = this.props.author;
+    const book = this.props.book;
+    const author = this.props.author;
     return (
       <tr>
         <td>{book.title}</td>

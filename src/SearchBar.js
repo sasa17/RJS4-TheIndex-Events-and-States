@@ -3,17 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { query: "" };
+  state = { query: "" };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ query: event.target.value });
     this.props.filterAuthors(event.target.value);
-  }
+  };
 
   render() {
     return (

@@ -3,23 +3,21 @@ import BookRow from "./BookRow";
 
 class AuthorDetail extends Component {
   render() {
-    let author = this.props.author;
-    console.log(author);
+    const author = this.props.author;
+    const authorName = `${author.first_name} ${author.last_name}`;
 
-    let books = author.books.map(book => (
+    const books = author.books.map(book => (
       <BookRow book={book} key={book.title} author={author} />
     ));
 
     return (
       <div className="author col-xs-10">
         <div>
-          <h3>
-            {author.first_name} {author.last_name}
-          </h3>
+          <h3>{authorName}</h3>
           <img
             src={author.imageUrl}
             className="img-thumbnail"
-            alt={`${author.first_name} ${author.last_name}`}
+            alt={authorName}
           />
         </div>
         <table className="mt-3 table">
