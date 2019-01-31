@@ -27,7 +27,7 @@ class App extends Component {
     this.setState({ filteredAuthors: filteredAuthors });
   };
 
-  getContentView() {
+  getContentView = () => {
     if (this.state.currentAuthor) {
       return <AuthorDetail author={this.state.currentAuthor} />;
     } else {
@@ -39,7 +39,7 @@ class App extends Component {
         />
       );
     }
-  }
+  };
 
   render() {
     return (
