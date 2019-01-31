@@ -17,6 +17,8 @@ class App extends Component {
 
   selectAuthor = author => this.setState({ currentAuthor: author });
 
+  unselectAuthor = author => this.setState({ currentAuthor: null });
+
   filterAuthors = query => {
     query = query.toLowerCase();
     let filteredAuthors = authors.filter(author => {
@@ -46,7 +48,7 @@ class App extends Component {
       <div id="app" className="container-fluid">
         <div className="row">
           <div className="col-2">
-            <Sidebar selectAuthor={this.selectAuthor} />
+            <Sidebar unselectAuthor={this.unselectAuthor} />
           </div>
           <div className="content col-10">{this.getContentView()}</div>
         </div>

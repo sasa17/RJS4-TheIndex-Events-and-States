@@ -6,7 +6,7 @@ const Sidebar = props => {
       <img src="theindex.svg" className="logo" alt="the index logo" />
       <section>
         <h4 className="menu-item active">
-          <button onClick={() => props.selectAuthor(null)}>AUTHORS</button>
+          <button onClick={props.unselectAuthor}>AUTHORS</button>
         </h4>
       </section>
     </div>
