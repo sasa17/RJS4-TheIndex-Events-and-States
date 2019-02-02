@@ -17,7 +17,7 @@ class App extends Component {
 
   selectAuthor = author => this.setState({ currentAuthor: author });
 
-  unselectAuthor = author => this.setState({ currentAuthor: null });
+  unselectAuthor = () => this.setState({ currentAuthor: null });
 
   filterAuthors = query => {
     query = query.toLowerCase();
