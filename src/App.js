@@ -11,23 +11,12 @@ import authors from "./data";
 
 class App extends Component {
   state = {
-    currentAuthor: null,
-    filteredAuthors: authors
+    currentAuthor: null
   };
 
   selectAuthor = author => this.setState({ currentAuthor: author });
 
   unselectAuthor = () => this.setState({ currentAuthor: null });
-
-  filterAuthors = query => {
-    query = query.toLowerCase();
-    let filteredAuthors = authors.filter(author => {
-      return `${author.first_name} ${author.last_name}`
-        .toLowerCase()
-        .includes(query.toLowerCase());
-    });
-    this.setState({ filteredAuthors: filteredAuthors });
-  };
 
   getContentView = () => {
     if (this.state.currentAuthor) {
@@ -35,7 +24,7 @@ class App extends Component {
     } else {
       return (
         <AuthorsList
-          authors={this.state.filteredAuthors}
+          authors={authors}
           selectAuthor={this.selectAuthor}
           filterAuthors={this.filterAuthors}
         />
