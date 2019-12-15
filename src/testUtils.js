@@ -15,3 +15,9 @@ export const fakeAuthor = overrides => ({
   books: Array.from({ length: Math.floor(Math.random * 20) }, () => fakeBook()),
   ...overrides
 });
+
+export const type = (wrapper, name, value) => {
+  wrapper.find(`input[name="${name}"]`).simulate("change", {
+    target: { name, value }
+  });
+};
