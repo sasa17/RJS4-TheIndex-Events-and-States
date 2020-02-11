@@ -27,8 +27,8 @@ describe("<App />", () => {
       expect(wrapper.state().currentAuthor).toBe(authors[0]);
     });
 
-    it("DOESN'T show the AuthorsList component", () => {
-      expect(wrapper.find("AuthorsList").exists()).toBe(false);
+    it("DOESN'T show the AuthorList component", () => {
+      expect(wrapper.find("AuthorList").exists()).toBe(false);
     });
 
     it("shows the AuthorDetail component", () => {
@@ -57,8 +57,8 @@ describe("<App />", () => {
       expect(wrapper.state().currentAuthor).toBe(null);
     });
 
-    it("shows the AuthorsList component", () => {
-      expect(wrapper.find("AuthorsList").exists()).toBe(true);
+    it("shows the AuthorList component", () => {
+      expect(wrapper.find("AuthorList").exists()).toBe(true);
     });
 
     it("DOESN'T show the AuthorDetail component", () => {

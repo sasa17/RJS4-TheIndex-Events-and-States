@@ -2,9 +2,7 @@ import React, { Component } from "react";
 
 // Components
 import Sidebar from "./Sidebar";
-import Loading from "./Loading";
 import AuthorList from "./AuthorList";
-import SearchBar from "./SearchBar";
 import AuthorDetail from "./AuthorDetail";
 
 import authors from "./data";
@@ -23,7 +21,7 @@ class App extends Component {
       return <AuthorDetail author={this.state.currentAuthor} />;
     } else {
       return (
-        <AuthorsList
+        <AuthorList
           authors={authors}
           selectAuthor={this.selectAuthor}
           filterAuthors={this.filterAuthors}
