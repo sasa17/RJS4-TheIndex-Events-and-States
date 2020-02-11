@@ -3,12 +3,12 @@ import React from "react";
 import { mount } from "enzyme";
 
 // Component
-import AuthorsList from "../AuthorsList";
+import AuthorList from "../AuthorList";
 
 // Utils
 import { type, fakeAuthor } from "../testUtils";
 
-describe("<AuthorsList />", () => {
+describe("<AuthorList />", () => {
   let wrapper;
   const authors = [
     fakeAuthor({ first_name: "potato" }),
@@ -16,7 +16,7 @@ describe("<AuthorsList />", () => {
     fakeAuthor({ first_name: "humba", last_name: "butamba" })
   ];
   beforeEach(() => {
-    wrapper = mount(<AuthorsList authors={authors} />);
+    wrapper = mount(<AuthorList authors={authors} />);
   });
 
   it("shows all the authors", () =>

@@ -3,7 +3,7 @@ import React from "react";
 // Components
 import AuthorCard from "./AuthorCard";
 
-function AuthorsList(props) {
+const AuthorList = props => {
   const authorCards = props.authors.map(author => (
     <AuthorCard key={author.first_name + author.last_name} author={author} />
   ));
@@ -14,6 +14,6 @@ function AuthorsList(props) {
       <div className="row">{authorCards}</div>
     </div>
   );
-}
+};
 
-export default AuthorsList;
+export default AuthorList;

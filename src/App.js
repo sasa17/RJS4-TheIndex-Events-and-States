@@ -5,7 +5,7 @@ import authors from "./data";
 
 // Components
 import Sidebar from "./Sidebar";
-import AuthorsList from "./AuthorsList";
+import AuthorList from "./AuthorList";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Sidebar />
         </div>
         <div className="content col-10">
-          <AuthorsList authors={authors} />
+          <AuthorList authors={authors} />
         </div>
       </div>
     </div>
