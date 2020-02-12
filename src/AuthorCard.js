@@ -3,6 +3,7 @@ import React from "react";
 const AuthorCard = props => {
   const author = props.author;
   const authorName = `${author.first_name} ${author.last_name}`;
+  const selectAuthor = props.selectAuthor;
   return (
     <div className="col-lg-4 col-md-6 col-12">
       <div className="card">
@@ -14,7 +15,7 @@ const AuthorCard = props => {
           />
         </div>
         <div className="card-body">
-          <h5 className="card-title">
+          <h5 onClick={() => selectAuthor(author)} className="card-title">
             <span>{authorName}</span>
           </h5>
           <small className="card-text">{author.books.length} books</small>
