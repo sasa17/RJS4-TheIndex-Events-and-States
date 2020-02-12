@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-function SearchBar() {
+const SearchBar = props => {
   const handleChange = event => {
-    console.log(event.target.value);
+    props.filterAuthors(event.target.value);
   };
 
   return (
@@ -24,6 +24,6 @@ function SearchBar() {
       </div>
     </div>
   );
-}
+};
 
 export default SearchBar;
